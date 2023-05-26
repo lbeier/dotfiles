@@ -1,0 +1,5 @@
+- clean: ['~']
+
+- link:
+    ~/.config/kitty: kitty
+    ~/.config/nvim: nvim
