@@ -19,4 +19,8 @@ if [ "$SPIN" ]; then
 	go install github.com/jesseduffield/lazygit@latest
 fi
 
+if [ ! -d "$PREZTO_DIR" ]; then
+	git clone --recursive https://github.com/sorin-ionescu/prezto.git "$PREZTO_DIR"
+fi
+
 nvim --headless "+Lazy! sync" +qa
