@@ -3,12 +3,8 @@
 - link:
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
-    ~/.zlogin:
-      force: true
-      path: zsh/zlogin
+    ~/.zlogin: zsh/zlogin
     ~/.zpreztorc: zsh/zpreztorc
     ~/.zprofile: zsh/zprofile
     ~/.zshenv: zsh/zshenv
-    ~/.zshrc:
-      force: true
-      path: zsh/zshrc
+    ~/.zshrc: zsh/zshrc
