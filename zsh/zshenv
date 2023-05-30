@@ -55,4 +55,8 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-export SHELL=/opt/homebrew/bin/zsh
+export SHELL=/usr/bin/zsh
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  export SHELL=/opt/homebrew/bin/zsh
+fi
