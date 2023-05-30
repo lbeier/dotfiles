@@ -19,9 +19,9 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 if [[ "$OSTYPE" == linux* ]]; then
 	rm -rf ~/.zshrc ~/.zlogin
 
-  if ! command -v go &> /dev/null
-    go install github.com/jesseduffield/lazygit@latest
-  fi
+	if ! command -v go &>/dev/null; then
+		go install github.com/jesseduffield/lazygit@latest
+	fi
 
 	sudo apt install kitty-terminfo
 fi
