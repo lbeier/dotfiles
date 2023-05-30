@@ -16,9 +16,14 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
 
-if [ "$SPIN" ]; then
+if [[ "$OSTYPE" == linux* ]]; then
 	rm -rf ~/.zshrc ~/.zlogin
-	go install github.com/jesseduffield/lazygit@latest
+
+  if ! command -v go &> /dev/null
+    go install github.com/jesseduffield/lazygit@latest
+  fi
+
+	sudo apt install kitty-terminfo
 fi
 
 if [ ! -d "$PREZTO_DIR" ]; then
