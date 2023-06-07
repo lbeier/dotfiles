@@ -26,3 +26,20 @@ fi
 
 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
+
+open_spin_mysql() {
+  if [ $# -lt 1 ]
+  then
+    echo "Usage: $0 <spin-instance-name>"
+    return
+  fi
+
+  local spin_info=$(spin show "$1" --json)
+  local fqdn=$(echo "$spin_info" | jq '.fqdn' --raw-output)
+
+  open mysql://root@direct.${fqdn}:53063
+}
+
+reload() {
+  exec zsh
+}
