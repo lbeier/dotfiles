@@ -10,24 +10,19 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 PREZTO_DIR="${ZDOTDIR:-$HOME}/.zprezto"
 
+if [ "$SPIN" ]; then
+	rm -rf ~/.zshrc ~/.zlogin
+
+	if ! command -v go &>/dev/null; then
+		go install github.com/jesseduffield/lazygit@latest
+	fi
+fi
+
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
-
-if [[ "$OSTYPE" == linux* ]]; then
-	rm -rf ~/.zshrc ~/.zlogin
-
-	ln -s $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
-	ln -s $HOME/dotfiles/zsh/zlogin $HOME/.zlogin
-
-	if ! command -v go &>/dev/null; then
-		go install github.com/jesseduffield/lazygit@latest
-	fi
-
-	sudo apt install kitty-terminfo
-fi
 
 if [ ! -d "$PREZTO_DIR" ]; then
 	git clone --recursive https://github.com/sorin-ionescu/prezto.git "$PREZTO_DIR"
