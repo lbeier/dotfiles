@@ -1,7 +1,6 @@
 - clean: ['~']
 
 - link:
-    ~/.config/kitty: kitty
     ~/.config/nvim: nvim
     ~/.zlogin: zsh/zlogin
     ~/.zpreztorc: zsh/zpreztorc
