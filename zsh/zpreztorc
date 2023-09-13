@@ -27,19 +27,22 @@ zstyle ':prezto:*:*' color 'yes'
 # Set the Prezto modules to load (browse modules).
 # The order matters.
 zstyle ':prezto:load' pmodule \
-  'environment' \
-  'terminal' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'utility' \
+  'command-not-found' \
   'completion' \
-  'history-substring-search' \
+  'directory' \
+  'editor' \
+  'environment' \
+  'git' \
+  'history' \
+  'homebrew' \
   'prompt' \
+  'rails' \
+  'spectrum' \
   'syntax-highlighting' \
+  'history-substring-search' \
   'autosuggestions' \
-  'git'
+  'terminal' \
+  'utility'
 
 #
 # Autosuggestions
@@ -87,11 +90,14 @@ zstyle ':prezto:module:editor' key-bindings 'vi'
 # History Substring Search
 #
 
+zstyle ':prezto:module:history-substring-search' case-sensitive 'no'
+zstyle ':prezto:module:history-substring-search' fuzzy 'yes'
+
 # Set the query found color.
-# zstyle ':prezto:module:history-substring-search:color' found ''
+zstyle ':prezto:module:history-substring-search:color' found ''
 
 # Set the query not found color.
-# zstyle ':prezto:module:history-substring-search:color' not-found ''
+zstyle ':prezto:module:history-substring-search:color' not-found ''
 
 # Set the search globbing flags.
 # zstyle ':prezto:module:history-substring-search' globbing-flags ''
